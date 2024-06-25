@@ -1,6 +1,10 @@
 import { Space_Grotesk } from "next/font/google";
+
+import { cookies } from 'next/headers';
+import { SESSION_COOKIE_NAME } from '@/constants'; // added
+
 import "./globals.css";
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@/components/ui/navigation-menu";
+import { Navigation } from "@/components/ui/navigation";
 
 const space_grotesk = Space_Grotesk({ subsets: ["latin"] });
 
@@ -11,26 +15,12 @@ export const metadata = {
 
 
 export default function RootLayout({ children }) {
+  const session = cookies().get(SESSION_COOKIE_NAME)?.value || null;
   return (
     <html lang="en">
       <body className={space_grotesk.className}>
-        <main className="flex flex-col items-center p-4 sm:p-8 lg:p-12 xl:p-16">
-          <NavigationMenu className="w-full flex flex-row items-center justify-between">
-            <NavigationMenuList className="flex flex-col gap-4 sm:flex-row sm:gap-8">
-              <NavigationMenuItem className="p-2 md:p-4 rounded-sm hover:bg-gray-100 dark:hover:bg-neutral-800/30 cursor-pointer">
-                <NavigationMenuLink>Dashboard</NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem className="p-2 md:p-4 rounded-sm hover:bg-gray-100 dark:hover:bg-neutral-800/30 cursor-pointer">
-                <NavigationMenuLink>Analyitcs</NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem className="p-2 md:p-4 rounded-sm hover:bg-gray-100 dark:hover:bg-neutral-800/30 cursor-pointer">
-                <NavigationMenuLink>Settings</NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem className="p-2 md:p-4 rounded-sm hover:bg-gray-100 dark:hover:bg-neutral-800/30 cursor-pointer">
-                <NavigationMenuLink>Sign out</NavigationMenuLink>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+        <main className="min-h-screen flex flex-col items-center p-4 sm:p-8 lg:p-12 xl:p-16">
+          <Navigation session={session} />
           {children}
         </main>
       </body>
