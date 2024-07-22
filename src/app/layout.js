@@ -17,11 +17,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   const session = cookies().get(SESSION_COOKIE_NAME)?.value || null;
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={space_grotesk.className}>
         <main className="min-h-screen flex flex-col items-center p-4 sm:p-8 lg:p-12 xl:p-16">
           <Navigation session={session} />
-          {children}
+          <div className="flex flex-col items-center justify-center p-4 lg:p-6 space-y-6">
+            {children}
+          </div>
         </main>
       </body>
     </html>
