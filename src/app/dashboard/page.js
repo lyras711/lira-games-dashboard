@@ -18,7 +18,7 @@ export default async function Dashboard() {
   const username = user.fields.Username.stringValue;
   const currentLevel = user.fields.CurrentLevel.integerValue;
   const coins = user.fields.coins.integerValue;
-
+  console.log(user.fields);
   return (
     <div className="flex flex-col items-start justify-center p-4">
       <h1 className="text-2xl font-bold mt-4">Welcome {username}</h1>
@@ -39,7 +39,7 @@ export default async function Dashboard() {
                   username: username,
                 }}
               />
-              <TopUpModal />
+              <TopUpModal email={user.email} />
             </div>
           </CardContent>
         </Card>

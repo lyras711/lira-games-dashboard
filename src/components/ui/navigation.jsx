@@ -22,7 +22,7 @@ export function Navigation({ session }) {
     await signOutWithGoogle();
     await removeSession();
   };
-
+  console.log(userSessionId)
   return (
     <NavigationMenu className="fixed top-0 left-0 min-w-[100%] w-full flex flex-row items-center justify-center lg:p-2 border-b border-border bg-background">
       <NavigationMenuList className="flex flex-col gap-4 sm:flex-row sm:gap-8">
