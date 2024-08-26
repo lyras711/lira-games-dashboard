@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { getUserData } from "./actions";
 import { TopUpModal } from "@/components/top-up-modal";
+import { WithdrawModal } from "@/components/withdraw-modal";
 
 export default async function Dashboard() {
 
@@ -24,13 +25,21 @@ export default async function Dashboard() {
 
       {/* 3 column grid showing balance, xp, and level */}
       <div className="flex flex-col md:grid md:grid-cols-5 md:gap-3 items-start justify-between mt-4 lg:mt-6">
-        <Card className="h-full">
+        <Card className="md:col-span-2">
           <CardHeader className="text-center">
-            <h4 className="text-lg font-medium leading-none tracking-tight">Balance</h4>
+            <h4 className="text-lg font-medium leading-none tracking-tight">Coins</h4>
           </CardHeader>
-          <CardContent className="text-center">
+          <CardContent className="text-center flex flex-col items-center justify-center">
             <div className="space-y-4">
-              <p className="text-2xl font-bold">{balance}€</p>
+              <p className="text-2xl font-bold">{balance}</p>
+            </div>
+            <div className="flex space-x-2 mt-4">
+              <WithdrawModal
+                user={{
+                  username: username,
+                }}
+              />
+              <TopUpModal />
             </div>
           </CardContent>
         </Card>
@@ -56,20 +65,7 @@ export default async function Dashboard() {
             </div>
           </CardContent>
         </Card>
-        <Card className="md:col-span-2">
-          <CardHeader className="text-center">
-            <h4 className="text-lg font-medium leading-none tracking-tight">Coins</h4>
-          </CardHeader>
-          <CardContent className="text-center flex flex-col items-center justify-center">
-            <div className="space-y-4">
-              <p className="text-2xl font-bold">{coins}</p>
-            </div>
-            <div className="flex space-x-2 mt-4">
-              <Button size="sm" variant="outline">Withdraw</Button>
-              <TopUpModal />
-            </div>
-          </CardContent>
-        </Card>
+        
       </div>
 
       <div className="flex flex-col md:grid md:grid-cols-5 md:gap-3 items-start justify-start mt-4 lg:mt-6">

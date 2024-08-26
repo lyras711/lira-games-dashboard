@@ -21,7 +21,7 @@ export function TopUpModal() {
         </DialogHeader>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Card className="flex flex-col items-center p-4 space-y-2">
-            <img src="/placeholder.svg" alt="Coins" className="mb-4" />
+            <img src="/coins_1.png" alt="Coins" className="mb-4" />
             <div className="text-lg font-semibold">300 Coins</div>
             <Badge variant="secondary">€5.99</Badge>
             <a href="https://buy.stripe.com/eVa4go5sl4CKcoMbIO" rel="noreferrer" target="_blank">
@@ -31,7 +31,7 @@ export function TopUpModal() {
             </a>
           </Card>
           <Card className="flex flex-col items-center p-4 space-y-2">
-            <img src="/placeholder.svg" alt="Coins" className="mb-4" />
+            <img src="/coins_2.png" alt="Coins" className="mb-4" />
             <div className="text-lg font-semibold">650 Coins</div>
             <Badge variant="secondary">€11.99</Badge>
             <a href="https://buy.stripe.com/fZe3ck3kd1qy0G47sx" rel="noreferrer" target="_blank">
@@ -41,7 +41,7 @@ export function TopUpModal() {
             </a>
           </Card>
           <Card className="flex flex-col items-center p-4 space-y-2">
-            <img src="/placeholder.svg" alt="Coins" className="mb-4" />
+            <img src="/coins_3.png" alt="Coins" className="mb-4" />
             <div className="text-lg font-semibold">1350 Coins</div>
             <Badge variant="secondary">€23.99</Badge>
             <a href="https://buy.stripe.com/4gwbIQ7At5GOdsQ4gk" rel="noreferrer" target="_blank">
@@ -51,7 +51,7 @@ export function TopUpModal() {
             </a>
           </Card>
           <Card className="flex flex-col items-center p-4 space-y-2">
-            <img src="/placeholder.svg" alt="Coins" className="mb-4" />
+            <img src="/coins_4.png" alt="Coins" className="mb-4" />
             <div className="text-lg font-semibold">2800 Coins</div>
             <Badge variant="secondary">€47.99</Badge>
             <a href="https://buy.stripe.com/28o7sA2g9c5c1K8fZ1" rel="noreferrer" target="_blank">
@@ -61,7 +61,7 @@ export function TopUpModal() {
             </a>
           </Card>
           <Card className="flex flex-col items-center p-4 space-y-2">
-            <img src="/placeholder.svg" alt="Coins" className="mb-4" />
+            <img src="/coins_5.png" alt="Coins" className="mb-4" />
             <div className="text-lg font-semibold">7750 Coins</div>
             <Badge variant="secondary">€119.99</Badge>
             <a href="https://buy.stripe.com/7sI3ckbQJ4CK1K88wy" rel="noreferrer" target="_blank">
