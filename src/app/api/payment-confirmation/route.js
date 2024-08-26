@@ -3,8 +3,6 @@
 import { NextResponse } from "next/server";
 
 
-const endpointSecret = "whsec_cc5968043d002418f76f0b0ad6b5e2d4dac7223f759c18e21f5e5b5220a4bda5";
-
 export async function POST(request, response) {
     const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
@@ -17,7 +15,7 @@ export async function POST(request, response) {
     let event;
   
     try {
-      event = await stripe.webhooks.constructEvent(body, sig, endpointSecret);
+      event = await stripe.webhooks.constructEvent(body, sig, process.env.STRIPE_SIGNING_SECRET);
     } catch (err) {
       console.error(err);
       // response.status(400).send(`Webhook Error: ${err.message}`);
@@ -31,7 +29,8 @@ export async function POST(request, response) {
         
         // update the user's subscription status in your database
         // send a confirmation email to the user
-
+        
+        const coins = paymentIntentSucceeded.id
 
         break;
       // ... handle other event types
