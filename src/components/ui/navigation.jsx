@@ -5,9 +5,10 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuL
 import { useUserSession } from '@/hooks/use-user-session';
 import { signInWithGoogle, signOutWithGoogle } from '@/lib/firebase/auth';
 import { createSession, removeSession } from '@/actions/auth-actions';
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 export function Navigation({ session }) {
+  const router = useRouter();
   const userSessionId = useUserSession(session);
   const activeLink = usePathname().split('/')[1];
 
@@ -16,6 +17,7 @@ export function Navigation({ session }) {
     if (userUid) {
       await createSession(userUid)
     }
+    router.push('/dashboard');
   };
 
   const handleSignOut = async () => {
