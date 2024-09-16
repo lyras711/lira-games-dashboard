@@ -1,5 +1,3 @@
-import { Space_Grotesk } from "next/font/google";
-
 import { cookies } from 'next/headers';
 import { SESSION_COOKIE_NAME } from '@/constants'; // added
 

@@ -1,7 +1,21 @@
 // post request to confirm the payment details of a stripe payment
 
 import { NextResponse } from "next/server";
+import { getUserByEmail, updateUserBalance, updateUserSubscriptionPlan } from "@/actions/users";
 
+const coins_amounts = {
+  '599': 300,
+  '1199': 650,
+  '2399': 1350,
+  '4799': 2800,
+  '11999': 7750
+}
+
+const subscription_plans = {
+  '0': 0,
+  '499': 1,
+  '1499': 2,
+}
 
 export async function POST(request, response) {
     const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
@@ -21,7 +35,6 @@ export async function POST(request, response) {
       // response.status(400).send(`Webhook Error: ${err.message}`);
       return NextResponse.json({ error: err.message }, { status: 500 });
     }
-    console.log(event);
     // Handle the event 
     switch (event.type) {
       case 'payment_intent.succeeded':
@@ -32,6 +45,34 @@ export async function POST(request, response) {
         
         const coins = paymentIntentSucceeded.id
 
+        break;
+      case 'checkout.session.completed':
+        const checkoutSessionCompleted = event.data.object;
+        console.log(checkoutSessionCompleted);
+        const customer_email = checkoutSessionCompleted.customer_details.email;
+        const amount = checkoutSessionCompleted.amount_total
+        let user_id = null;
+        try {
+          user_id = await getUserByEmail(customer_email);
+        } catch (error) {
+          console.log("User not found");
+          return NextResponse.json({ error: error.message }, { status: 500 });
+        }
+        if (checkoutSessionCompleted.mode === 'payment') {
+          if (checkoutSessionCompleted.payment_status === 'paid') {
+            const coins = coins_amounts[amount.toString()];
+            console.log(coins);
+            // update the user's balance
+            await updateUserBalance(user_id, coins);
+
+          }
+        } else if (checkoutSessionCompleted.mode === 'subscription') {
+          if (checkoutSessionCompleted.subscription) {
+            // update the user's subscription plan
+            console.log("Updating subscription plan");
+            await updateUserSubscriptionPlan(user_id, checkoutSessionCompleted.subscription, subscription_plans[amount.toString()]);
+          }
+        }
         break;
       // ... handle other event types
       default:

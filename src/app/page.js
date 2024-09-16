@@ -1,12 +1,16 @@
 'use client'
 import { useUserSession } from '@/hooks/use-user-session';
-import { signInWithGoogle, signOutWithGoogle } from '@/lib/firebase/auth';
+import { signInWithGoogle, signOutWithGoogle } from '@/lib/firebase/client.auth';
 import { createSession, removeSession } from '@/actions/auth-actions';
-import Image from "next/image";
 import { Button } from '@/components/ui/button';
+import { useEffect } from 'react';
+import { checkSession } from '@/actions/auth-actions';
 
-export default function Home() {
-
+export default function Home() {  
+  useEffect(() => {
+    checkSession();
+  }, []);
+  
   const handleSignIn = async () => {
     const userUid = await signInWithGoogle();
     if (userUid) {
@@ -24,5 +28,3 @@ export default function Home() {
     </main>
   );
 }
-5639
-4745

@@ -1,4 +1,3 @@
-
 'use server';
 
 import { cookies } from 'next/headers';
@@ -21,4 +20,20 @@ export async function removeSession() {
   cookies().delete(SESSION_COOKIE_NAME);
 
   redirect(ROOT_ROUTE);
+}
+
+export async function getSession() {
+  const session = cookies().get(SESSION_COOKIE_NAME)?.value || null;
+
+  return session;
+}
+
+export async function checkSession() {
+  const session = await getSession();
+
+  if (!session) {
+    redirect(ROOT_ROUTE);
+  } else {
+    redirect(HOME_ROUTE);
+  }
 }
