@@ -73,13 +73,6 @@ export function TopUpModal({ email }) {
         </DialogHeader>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <PurchaseCoins
-            price_id="price_1Ps2mDP8KW8pdlk1FwzqMMcn"
-            price="5.99"
-            coins="300"
-            image="/coins_1.png"
-            email={email}
-          />
-          <PurchaseCoins
             price_id="price_1PfJ2xP8KW8pdlk1qNH4Hjbo"
             price="5.99"
             coins="300"

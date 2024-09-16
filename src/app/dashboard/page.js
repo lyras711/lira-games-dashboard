@@ -70,7 +70,7 @@ export default async function Dashboard() {
                 email={user.email}
                 title="Competitor"
                 price="4.99"
-                price_id="price_1PzYx5P8KW8pdlk180QtveQ4"
+                price_id="price_1Peya3P8KW8pdlk1XNb3gJkE"
                 isSelected={user.tier === 1}
               >
                 <span className="text-sm font-medium">LiRA Events</span>
@@ -83,7 +83,7 @@ export default async function Dashboard() {
                 email={user.email}
                 title="Creator"
                 price="14.99"
-                price_id="price_1PzYxIP8KW8pdlk1DyVHgOPp"
+                price_id="price_1Peya3P8KW8pdlk1XNb3gJkE"
                 isSelected={user.tier === 2}
               >
                 <span className="text-sm font-medium">Access to all games</span>
