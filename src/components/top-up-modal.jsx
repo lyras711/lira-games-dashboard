@@ -51,7 +51,7 @@ function PurchaseCoins({
   return (
     <Card className="flex flex-col items-center p-4 space-y-2">
       <img src={image} alt="Coins" className="mb-4" />
-      <div className="text-lg font-semibold">{coins} Coins</div>
+      <div className="text-lg text-center font-semibold">{coins} Coins</div>
       <Badge variant="secondary">€{price}</Badge>
       <Button onClick={handleSubmit} variant="default" size="sm" className="mt-4">
         Purchase
@@ -71,7 +71,7 @@ export function TopUpModal({ email }) {
           <DialogTitle>Purchase Coins</DialogTitle>
           <DialogDescription>Select a coin package to purchase.</DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 grid-cols-2 lg:grid-cols-3">
           <PurchaseCoins
             price_id="price_1PfJ2xP8KW8pdlk1qNH4Hjbo"
             price="5.99"

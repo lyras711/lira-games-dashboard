@@ -26,8 +26,8 @@ export function Navigation({ session }) {
   };
 
   return (
-    <NavigationMenu className="fixed top-0 left-0 min-w-[100%] w-full flex flex-row items-center justify-center lg:p-2 border-b border-border bg-background">
-      <NavigationMenuList className="flex flex-col gap-4 sm:flex-row sm:gap-8">
+    <NavigationMenu className="fixed top-0 left-0 min-w-[100%] w-full flex flex-row items-center justify-center p-2 border-b border-border bg-background">
+      <NavigationMenuList className="flex flex-row gap-4">
         <NavigationMenuItem className={`p-2 md:p-4 rounded-sm hover:bg-neutral-800/60 dark:hover:bg-neutral-800/30 cursor-pointer ${activeLink === 'dashboard' && 'bg-neutral-800/60'}`}>
           <NavigationMenuLink href="/dashboard" >Dashboard</NavigationMenuLink>
         </NavigationMenuItem>

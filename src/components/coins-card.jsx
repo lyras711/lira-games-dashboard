@@ -37,7 +37,7 @@ export default function CoinsCard({
   }, []);
 
   return (
-    <Card className="md:col-span-2">
+    <Card className="w-full md:col-span-2">
       <CardHeader className="text-center">
         <h4 className="text-lg font-medium leading-none tracking-tight">Coins</h4>
       </CardHeader>

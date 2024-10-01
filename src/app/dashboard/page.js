@@ -19,14 +19,14 @@ export default async function Dashboard() {
       <h1 className="text-2xl font-bold mt-4">Welcome {user.username}</h1>
 
       {/* 3 column grid showing balance, xp, and level */}
-      <div className="flex flex-col md:grid md:grid-cols-5 md:gap-3 items-start justify-between mt-4 lg:mt-6">
+      <div className="w-full flex flex-col gap-2 md:grid md:grid-cols-5 md:gap-3 items-start justify-between mt-4 lg:mt-6">
         <CoinsCard
           username={user.username}
           email={user.email}
           balance={user.balance}
         />
 
-        <Card className="h-full">
+        <Card className="w-full h-full">
           <CardHeader className="text-center">
             <h4 className="text-lg font-medium leading-none tracking-tight">Current XP</h4>
           </CardHeader>
@@ -37,7 +37,7 @@ export default async function Dashboard() {
           </CardContent>
         </Card>
 
-        <Card className="h-full">
+        <Card className="w-full h-full">
           <CardHeader className="text-center">
             <h4 className="text-lg font-medium leading-none tracking-tight">Current Level</h4>
           </CardHeader>
@@ -50,13 +50,13 @@ export default async function Dashboard() {
         
       </div>
 
-      <div className="flex flex-col md:grid md:grid-cols-5 md:gap-3 items-start justify-start mt-4 lg:mt-6">
-        <Card className="md:col-span-full">
+      <div className="w-full flex flex-col md:grid md:grid-cols-5 md:gap-3 items-start justify-start mt-4 lg:mt-6">
+        <Card className="w-full md:col-span-full">
           <CardHeader>
             <h4 className="text-lg font-medium leading-none tracking-tight">Change Subscription Plan</h4>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-3 space-x-4">
+            <div className="flex flex-col gap-2 md:grid md:grid-cols-3 md:gap-4 md:space-x-4">
               <SubscriptionCard
                 email={user.email}
                 title="Free"
