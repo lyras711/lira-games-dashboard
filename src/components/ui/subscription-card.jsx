@@ -36,7 +36,7 @@ export function SubscriptionCard({ email, title, children, price_id, price, isSe
     }
   }
   return (
-    <Card className="flex flex-col text-center">
+    <Card className="w-full flex flex-col text-center">
       <CardHeader className="text-center  border-b border-gray-300 flex flex-col items-center justify-center gap-2">
         <h4 className="text-lg font-medium leading-none tracking-tight">{title}</h4>
         <span className="text-sm font-medium">{`${price}€`} <span className="text-xs font-normal">/mo</span></span>
